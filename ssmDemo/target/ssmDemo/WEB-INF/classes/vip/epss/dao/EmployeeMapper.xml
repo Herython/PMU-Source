@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.epss.dao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="vip.epss.domain.Employee">
+    <id column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="epass" jdbcType="VARCHAR" property="epass" />
+    <result column="edid" jdbcType="INTEGER" property="edid" />
+    <result column="euptime" jdbcType="TIMESTAMP" property="euptime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    eid, ename, epass, edid, euptime
+  </sql>
+  <select id="selectByExample" parameterType="vip.epss.domain.EmployeeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="vip.epss.domain.EmployeeExample">
+    delete from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="vip.epss.domain.Employee">
+    insert into employee (eid, ename, epass, 
+      edid, euptime)
+    values (#{eid,jdbcType=INTEGER}, #{ename,jdbcType=VARCHAR}, #{epass,jdbcType=VARCHAR}, 
+      #{edid,jdbcType=INTEGER}, #{euptime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="vip.epss.domain.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="epass != null">
+        epass,
+      </if>
+      <if test="edid != null">
+        edid,
+      </if>
+      <if test="euptime != null">
+        euptime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="epass != null">
+        #{epass,jdbcType=VARCHAR},
+      </if>
+      <if test="edid != null">
+        #{edid,jdbcType=INTEGER},
+      </if>
+      <if test="euptime != null">
+        #{euptime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="vip.epss.domain.EmployeeExample" resultType="java.lang.Long">
+    select count(*) from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update employee
+    <set>
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ename != null">
+        ename = #{record.ename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.epass != null">
+        epass = #{record.epass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edid != null">
+        edid = #{record.edid,jdbcType=INTEGER},
+      </if>
+      <if test="record.euptime != null">
+        euptime = #{record.euptime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update employee
+    set eid = #{record.eid,jdbcType=INTEGER},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      epass = #{record.epass,jdbcType=VARCHAR},
+      edid = #{record.edid,jdbcType=INTEGER},
+      euptime = #{record.euptime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="vip.epss.domain.Employee">
+    update employee
+    <set>
+      <if test="ename != null">
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="epass != null">
+        epass = #{epass,jdbcType=VARCHAR},
+      </if>
+      <if test="edid != null">
+        edid = #{edid,jdbcType=INTEGER},
+      </if>
+      <if test="euptime != null">
+        euptime = #{euptime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="vip.epss.domain.Employee">
+    update employee
+    set ename = #{ename,jdbcType=VARCHAR},
+      epass = #{epass,jdbcType=VARCHAR},
+      edid = #{edid,jdbcType=INTEGER},
+      euptime = #{euptime,jdbcType=TIMESTAMP}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+
+<!--  新增的SQL片段， 用于封装持有的对象-->
+<!--  id对方法名，parameterType对应接口中方法的参数类型，resultXXXX对应接口中方法的返回值-->
+  <select id="selectByPrimaryKeyWithObject" parameterType="java.lang.Integer" resultMap="BaseResultMapWithObject">
+    select
+        e.eid as eid,e.ename as ename,e.epass as epass,e.euptime as euptime,i.iid as iid,i.iphone as iphone,p.pid as pid, p.pname as pname
+    from employee as e
+        left join info as i on e.eid=i.ieid
+        left join matchep as m on e.eid = m.meid
+        left join project as p on m.mpid = p.pid
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+<!--  id节点代表主键字段，普通字段用result，property指java类中属性名，jdbcType指数据库中字段类型，column指ResultSet中的字段名-->
+  <resultMap id="BaseResultMapWithObject" type="vip.epss.domain.Employee">
+    <id column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="epass" jdbcType="VARCHAR" property="epass" />
+<!--    <result column="edid" jdbcType="INTEGER" property="edid" />-->
+    <result column="euptime" jdbcType="TIMESTAMP" property="euptime" />
+<!--    封装1对1 中的 持有的对象，  使用 association节点封装-->
+    <association property="info" javaType="vip.epss.domain.Info">
+        <id column="iid" property="iid" jdbcType="INTEGER" />
+        <result column="iphone" property="iphone" jdbcType="VARCHAR" />
+    </association>
+<!--    封装1对多 中的持有的对象集合  ，  使用 collection节点封装, 类型说的是集合封装的具体数据的类型,为了方便说明，切换为两个列子演示1对多的封装，-->
+    <collection property="projects" ofType="vip.epss.domain.Project">
+        <id column="pid" jdbcType="INTEGER" property="pid" />
+        <result column="pname" jdbcType="VARCHAR" property="pname" />
+    </collection>
+  </resultMap>
+
+<!--通过子查询方式实现1对多的映射， 请查看Project相关文件-->
+  <select id="selectByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+        e.*
+    from employee as e
+        left join matchep as m on e.eid = m.meid
+    where m.mpid = #{pid,jdbcType=INTEGER}
+  </select>
+</mapper>

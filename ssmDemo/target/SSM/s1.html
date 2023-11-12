@@ -1,0 +1,100 @@
+<!--学生需要调试的代码-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商家首页</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+</head>
+<body>
+<!--
+单页应用， 所有功能集成在当前页面
+一般对数据的操作就是  增，删，改，查
+1   打开该页时自动访问后端controller得到列表数据【查】
+2   点击具体按钮时访问后端controller 执行操作【增，删，改】
+3   利用DOM（不刷新页面修改页面局部内容）
+4   利用异步网络请求ajax（不刷新页面在浏览器后台发送HTTP请求）
+-->
+<div id="display"></div>
+
+
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script>
+  //页面加载时
+  $(document).ready(function () {
+    //1 访问所有订单数据
+    $.ajax({
+      url:"./images/da.json",
+      dataType:"json",
+      success:function(ret){
+        // console.log(ret);
+        //将数据渲染到页面中
+        $("#display").empty();//先清空原始内容
+
+        let orderlist = ret.dataZone.orderlist;
+        //开始循环遍历
+        $.each(orderlist,function(index,item){
+          //遍历一次创建一个行
+          // var dTr = $("<tr></tr>");
+          // //依次构建单元格td
+          // var checkBoxTd = $('<td><input type="checkbox" name="dids" /></td>');
+          // var didTd = $('<td></td>').text(item.did);
+          // var dnameTd = $('<td></td>').text(item.dname);
+          // var dvalueTd = $('<td></td>').text(item.dvalue);
+          // var dridTd = $('<td></td>').text(item.drid);
+
+          $.each(item.dishess,function(index1,item1){
+
+          });
+
+
+          // var dintroductionTd = $('<td></td>').text(item.dintroduction);
+          // var updateTd = $('<td></td>').html('<button class="btn btn-info">修改</button>');
+          // var deleteTd = $('<td></td>').html('<a class="btn btn-danger" href="dishes/delete?did='+item.did+'">删除</a>');
+          // //每次循环将创建的td追加到tr中
+          // dTr.append(checkBoxTd).append(didTd).append(dnameTd).append(dvalueTd).append(dridTd).append(dintroductionTd).append(updateTd).append(deleteTd);
+          // //每次循环将创建的tr追加到tbody中
+          // $("#display").append(dTr); // 每次修改前端页面都需要重启服务器太浪费时间， 可以考虑热部署
+          // console.log(orderlist);
+          // console.log(item);
+        console.log(orderlist[0].dishess[0].did);//   typeof dishess  ==> array     object
+        console.log(orderlist[0].dishess[0].dname);
+        console.log(orderlist[0].dishess[1].did);
+        console.log(orderlist[0].dishess[1].dname);
+        console.log(orderlist[0].dishess[2].did);
+        console.log(orderlist[0].dishess[2].dname);
+
+        console.log(orderlist[1].dishess[0].did);
+        console.log(orderlist[1].dishess[0].dname);
+        console.log(orderlist[1].dishess[1].did);
+        console.log(orderlist[1].dishess[1].dname);
+        console.log(orderlist[1].dishess[2].did);
+        console.log(orderlist[1].dishess[2].dname);
+
+
+
+        console.log(orderlist[2].dishess[0].did);
+        console.log(orderlist[2].dishess[0].dname);
+        console.log(orderlist[2].dishess[1].did);
+        console.log(orderlist[2].dishess[1].dname);
+        console.log(orderlist[2].dishess[2].did);
+        console.log(orderlist[2].dishess[2].dname);
+
+        });
+
+
+      },
+      error:function (eno) {
+        console.log(eno);
+      }
+    });
+
+
+  });
+</script>
+
+
+</body>
+</html>

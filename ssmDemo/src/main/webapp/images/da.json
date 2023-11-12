@@ -1,0 +1,199 @@
+{
+  "statusCode": 200,
+  "message": "aaa",
+  "dataZone": {
+    "orderlist": [
+      {
+        "oid": 1,
+        "ocustomerid": null,
+        "oresaurantid": null,
+        "ototalvalue": 10,
+        "otime": null,
+        "ouptime": null,
+        "customer": {
+          "cid": 1,
+          "cusername": "zy",
+          "cpass": null,
+          "cimage": null,
+          "caddress": null,
+          "cphone": null,
+          "cbalance": null,
+          "cpermission": null,
+          "cuptime": null,
+          "orderinfs": null
+        },
+        "restaurant": {
+          "rid": 1,
+          "rusername": "zy",
+          "rpass": null,
+          "rname": null,
+          "raddress": null,
+          "rpermission": null,
+          "ruptime": null,
+          "dishes": null,
+          "orderinfs": null
+        },
+        "dishess": [
+          {
+            "did": null,
+            "dname": "bbb",
+            "drid": null,
+            "dvalue": null,
+            "dintroduction": null,
+            "duptime": null,
+            "orderinfs": null,
+            "dishess": null
+          },
+          {
+            "did": null,
+            "dname": "ccc",
+            "drid": null,
+            "dvalue": null,
+            "dintroduction": null,
+            "duptime": null,
+            "orderinfs": null,
+            "dishess": null
+          },
+          {
+            "did": null,
+            "dname": "ddd",
+            "drid": null,
+            "dvalue": null,
+            "dintroduction": null,
+            "duptime": null,
+            "orderinfs": null,
+            "dishess": null
+          }
+        ]
+      },
+      {
+        "oid": 6,
+        "ocustomerid": null,
+        "oresaurantid": null,
+        "ototalvalue": 66,
+        "otime": null,
+        "ouptime": null,
+        "customer": {
+          "cid": 1,
+          "cusername": "zy",
+          "cpass": null,
+          "cimage": null,
+          "caddress": null,
+          "cphone": null,
+          "cbalance": null,
+          "cpermission": null,
+          "cuptime": null,
+          "orderinfs": null
+        },
+        "restaurant": {
+          "rid": 1,
+          "rusername": "zy",
+          "rpass": null,
+          "rname": null,
+          "raddress": null,
+          "rpermission": null,
+          "ruptime": null,
+          "dishes": null,
+          "orderinfs": null
+        },
+        "dishess": []
+      },
+      {
+        "oid": 7,
+        "ocustomerid": null,
+        "oresaurantid": null,
+        "ototalvalue": 66,
+        "otime": null,
+        "ouptime": null,
+        "customer": {
+          "cid": 1,
+          "cusername": "zy",
+          "cpass": null,
+          "cimage": null,
+          "caddress": null,
+          "cphone": null,
+          "cbalance": null,
+          "cpermission": null,
+          "cuptime": null,
+          "orderinfs": null
+        },
+        "restaurant": {
+          "rid": 1,
+          "rusername": "zy",
+          "rpass": null,
+          "rname": null,
+          "raddress": null,
+          "rpermission": null,
+          "ruptime": null,
+          "dishes": null,
+          "orderinfs": null
+        },
+        "dishess": []
+      },
+      {
+        "oid": 8,
+        "ocustomerid": null,
+        "oresaurantid": null,
+        "ototalvalue": 66,
+        "otime": null,
+        "ouptime": null,
+        "customer": {
+          "cid": 1,
+          "cusername": "zy",
+          "cpass": null,
+          "cimage": null,
+          "caddress": null,
+          "cphone": null,
+          "cbalance": null,
+          "cpermission": null,
+          "cuptime": null,
+          "orderinfs": null
+        },
+        "restaurant": {
+          "rid": 1,
+          "rusername": "zy",
+          "rpass": null,
+          "rname": null,
+          "raddress": null,
+          "rpermission": null,
+          "ruptime": null,
+          "dishes": null,
+          "orderinfs": null
+        },
+        "dishess": []
+      },
+      {
+        "oid": 9,
+        "ocustomerid": null,
+        "oresaurantid": null,
+        "ototalvalue": 66,
+        "otime": null,
+        "ouptime": null,
+        "customer": {
+          "cid": 1,
+          "cusername": "zy",
+          "cpass": null,
+          "cimage": null,
+          "caddress": null,
+          "cphone": null,
+          "cbalance": null,
+          "cpermission": null,
+          "cuptime": null,
+          "orderinfs": null
+        },
+        "restaurant": {
+          "rid": 1,
+          "rusername": "zy",
+          "rpass": null,
+          "rname": null,
+          "raddress": null,
+          "rpermission": null,
+          "ruptime": null,
+          "dishes": null,
+          "orderinfs": null
+        },
+        "dishess": []
+      }
+    ]
+  }
+}
