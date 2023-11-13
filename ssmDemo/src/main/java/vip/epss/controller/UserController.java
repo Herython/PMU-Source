@@ -186,17 +186,19 @@ public class UserController {
     }
 
     @RequestMapping(value="/post/{num}",method=RequestMethod.DELETE)
-    public MessageAndData deletePost(@PathVariable("num")Integer id,HttpSession session){
-        Integer userId=Integer.parseInt(session.getAttribute("userId").toString());
+    public MessageAndData deletePost(@PathVariable("num")Integer id){
+//        Integer userId=Integer.parseInt(session.getAttribute("userId").toString());
+        Integer userId=attributesService.getUserId();
         Post post=postService.selectById(id);
         if(userId!=post.getUserid()){
             return MessageAndData.success().setMessage("删除失败!");
         }
         else{
             Integer postId=post.getId();
+            Integer flag0=reportedPostService.deleteByPostId(postId);
             Integer flag1=messageService.deleteByPostId(postId);
             Integer flag2=postService.deleteById(postId);
-            if(flag1>=1&&flag2>=1){
+            if(flag2>=1){
                 return MessageAndData.success().setMessage("删除失败!");
             }
             else{
